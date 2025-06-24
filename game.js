@@ -16,7 +16,7 @@ $(document).ready(function() {
 
     if(isMobileDevice()) {
         toMobile();
-        $(".statGame").on("touchstart",function() {
+        $(".startGame").click(function() {
             if(start === false) {
             nextSequence();
             $("#level-title").html("Level " + level);
