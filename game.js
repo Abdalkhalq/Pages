@@ -68,22 +68,10 @@ function checkAnswer(checkAnswer) {
     }
     else { 
            if(isMobileDevice()){
-            playSound("wrong");
-            $("body").addClass("game-over");
-            setTimeout(function() {
-            $("body").removeClass("game-over");
-            },200);
-            $("#level-title").html("Game Over, Press on the Button to Restart");
-            startOver();
+             toWrong("Press on the Button to Restart");
            }
            else {
-            playSound("wrong");
-            $("body").addClass("game-over");
-            setTimeout(function() {
-            $("body").removeClass("game-over");
-            },200);
-            $("#level-title").html("Game Over, Press Any Key to Restart");
-            startOver();
+             toWrong("Press Any Key to Restart");
            }
         }
 }
@@ -102,4 +90,14 @@ function isMobileDevice() {
 function toMobile() {
     $("#level-title").html("Click on the Button to Start the Game");
     $(".startGame").css("display","inline-block");
+}
+
+function toWrong(string) {
+    playSound("wrong");
+    $("body").addClass("game-over");
+    setTimeout(function() {
+    $("body").removeClass("game-over");
+    },200);
+    $("#level-title").html("Game Over, " + string);
+    startOver();
 }
